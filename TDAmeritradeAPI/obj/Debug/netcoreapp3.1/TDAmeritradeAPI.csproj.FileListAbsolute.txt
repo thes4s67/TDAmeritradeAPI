@@ -1,0 +1,11 @@
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.deps.json
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.dll
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.csprojAssemblyReference.cache
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.AssemblyInfoInputs.cache
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.AssemblyInfo.cs
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.pdb
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.dll
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.pdb
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\bin\Debug\netcoreapp3.1\System.Reactive.dll
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\bin\Debug\netcoreapp3.1\System.Reactive.xml
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.csproj.CopyComplete
