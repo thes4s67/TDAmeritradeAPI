@@ -4,7 +4,7 @@ TDAmeritrade client library for .NET developers. Get stock quotes, account infor
 # Getting Started
 - Get Client ID and RedirectURI from TD Developer
 
-# Console App:
+<h1>Console App:</h1>
 ```
 /* Get Code */
 //This will open up Chrome browser -- login in your TD account
