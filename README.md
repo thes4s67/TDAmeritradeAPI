@@ -4,7 +4,7 @@ TDAmeritrade client library for .NET developers. Get stock quotes, account infor
 # Getting Started
 - Get Client ID and RedirectURI from TD Developer
 
-<h1>Console App:</h1>
+Console App:
 ```
 /* Get Code */
 //This will open up Chrome browser -- login in your TD account
@@ -28,7 +28,7 @@ var priceHistory = new PriceHistorySettings
 var historicalData = client.GetPriceHistory(priceHistory).Result.Data;
 ```
 
-# Web App:
+Web App:
 Coming soon!
 
 For TD Endpoints, see https://developer.tdameritrade.com/apis
