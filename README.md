@@ -30,3 +30,9 @@ Web App:
 Coming soon!
 
 For TD Endpoints, see https://developer.tdameritrade.com/apis
+
+TODO:
+- Lots left to do!
+- Streamer currently only logins
+- Currently cannot post trades
+- Most TD endpoints are functional but needs more work.
