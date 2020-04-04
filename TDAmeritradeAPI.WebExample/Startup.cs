@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using TDAmeritradeAPI.WebExample.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TDAmeritradeAPI.WebExample.Data.IRepository;
+using TDAmeritradeAPI.WebExample.Data.Repository;
 
 namespace TDAmeritradeAPI.WebExample
 {
@@ -23,7 +29,15 @@ namespace TDAmeritradeAPI.WebExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddRazorPages();
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,6 +46,7 @@ namespace TDAmeritradeAPI.WebExample
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -45,12 +60,14 @@ namespace TDAmeritradeAPI.WebExample
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseMvc();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+//            app.UseEndpoints(endpoints =>
+//            {
+//                endpoints.MapRazorPages();
+//            });
         }
     }
 }

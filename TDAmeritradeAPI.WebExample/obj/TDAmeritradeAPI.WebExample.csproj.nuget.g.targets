@@ -5,5 +5,6 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)system.reactive\4.3.2\buildTransitive\netcoreapp3.0\System.Reactive.targets" Condition="Exists('$(NuGetPackageRoot)system.reactive\4.3.2\buildTransitive\netcoreapp3.0\System.Reactive.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\3.1.0\buildTransitive\Microsoft.AspnetCore.Identity.UI.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.identity.ui\3.1.0\buildTransitive\Microsoft.AspnetCore.Identity.UI.targets')" />
   </ImportGroup>
 </Project>

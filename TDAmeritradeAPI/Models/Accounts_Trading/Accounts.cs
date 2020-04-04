@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace TDAmeritradeAPI.Models.Accounts_Trading
 {
     public class Accounts
     {
-        public TDAccounts[] accounts { get; set; }
-
-        public class TDAccounts
-        {
-            public SecuritiesAccount securitiesAccount { get; set; }
-        }
+        public SecuritiesAccount securitiesAccount { get; set; }
 
         public class SecuritiesAccount
         {

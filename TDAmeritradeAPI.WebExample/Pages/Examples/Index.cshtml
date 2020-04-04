@@ -1,0 +1,34 @@
+﻿@page
+@model TDAmeritradeAPI.WebExample.Pages.Examples.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Examples</h1>
+
+<div class="row">
+    <div class="col-3">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-quote-list" data-toggle="list" href="#list-quote" role="tab" aria-controls="quote">Get Quote</a>
+            <a class="list-group-item list-group-item-action" id="list-order-list" data-toggle="list" href="#list-order" role="tab" aria-controls="order">Place Order</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-quote" role="tabpanel" aria-labelledby="list-quote-list">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input id="symbol" placeholder="Enter stock symbol" />
+                            <button id="searchQuote" type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <textarea id="quoteTA" style="width: 100%; height: 400px;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="list-order" role="tabpanel" aria-labelledby="list-order-list"></div>
+        </div>
+    </div>
+</div>

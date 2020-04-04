@@ -84,28 +84,15 @@ namespace TDAmeritradeAPI.Client
         /// <summary>
         /// Get Account balances, positions, and orders for all linked accounts.
         /// </summary>
-        /// <param name="field">Valid Fields: Positions or Orders</param>
+        /// <param name="fields">Valid Fields: Positions and/or Orders</param>
         /// <returns></returns>
-        public async Task<TDResponse<Accounts>> GetAccounts(string field)
-        {
-            var requestParams = new Dictionary<string, object>
-            {
-                {"fields", field}
-            };
-            return await ExecuteEndPoint<Accounts>(Accounts, requestParams, Method.GET);
-        }
-        /// <summary>
-        /// Get Account balances, positions, and orders for all linked accounts.
-        /// </summary>
-        /// <param name="fields">Valid Fields: Positions or Orders</param>
-        /// <returns></returns>
-        public async Task<TDResponse<Accounts>> GetAccounts(string[] fields)
+        public async Task<TDResponse<Accounts[]>> GetAccounts(string[] fields)
         {
             var requestParams = new Dictionary<string, object>
             {
                 {"fields", string.Join(',', fields)}
             };
-            return await ExecuteEndPoint<Accounts>(Accounts, requestParams, Method.GET);
+            return await ExecuteEndPoint<Accounts[]>(Accounts, requestParams, Method.GET);
         }
         /// <summary>
         /// 
@@ -204,30 +191,30 @@ namespace TDAmeritradeAPI.Client
         /// </summary>
         /// <param name="placeOrder"></param>
         /// <returns></returns>
-        public async Task<TDResponse<Orders>> PlaceOrder(OrderSettings placeOrder)
+        public async Task<TDResponse<Orders>> PlaceOrder(string accountId, OrderSettings placeOrder)
         {
-            return await ExecuteEndPoint<Orders>(_PlaceOrder.Replace("{accountId}", placeOrder.accountId.ToString()), null, Method.POST);
+            return await ExecuteEndPoint<Orders>(_PlaceOrder.Replace("{accountId}", accountId), placeOrder, Method.POST);
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="replaceOrder"></param>
         /// <returns></returns>
-        public async Task<TDResponse<Orders>> ReplaceOrder(OrderSettings replaceOrder)
+        public async Task<TDResponse<Orders>> ReplaceOrder(string accountId, string orderId, OrderSettings replaceOrder)
         {
-            _ReplaceOrder = _ReplaceOrder.Replace("{accountId}", replaceOrder.accountId.ToString());
-            _ReplaceOrder = _ReplaceOrder.Replace("{orderId}", replaceOrder.orderId.ToString());
-            return await ExecuteEndPoint<Orders>(_ReplaceOrder, null, Method.PUT);
+            _ReplaceOrder = _ReplaceOrder.Replace("{accountId}", accountId);
+            _ReplaceOrder = _ReplaceOrder.Replace("{orderId}", orderId);
+            return await ExecuteEndPoint<Orders>(_ReplaceOrder, replaceOrder, Method.PUT);
         }
         /// <summary>
         /// Save an order for a specific account.
         /// </summary>
         /// <param name="saveOrder"></param>
         /// <returns></returns>
-        public async Task<TDResponse<Orders>> SaveOrder(OrderSettings saveOrder)
+        public async Task<TDResponse<Orders>> SaveOrder(string accountId, OrderSettings saveOrder)
         {
-            _SavedOrder = _SavedOrder.Replace("{accountId}", saveOrder.accountId.ToString());
-            return await ExecuteEndPoint<Orders>(_SavedOrder, null, Method.POST);
+            _SavedOrder = _SavedOrder.Replace("{accountId}", accountId);
+            return await ExecuteEndPoint<Orders>(_SavedOrder, saveOrder, Method.POST);
         }
         #endregion
 

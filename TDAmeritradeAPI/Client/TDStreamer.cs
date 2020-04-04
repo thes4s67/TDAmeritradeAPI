@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.WebSockets;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Web;
 using TDAmeritradeAPI.Models.UserInfo_Preferences;
 using TDAmeritradeAPI.Props;
 using Websocket.Client;
-using System.Web;
 
 namespace TDAmeritradeAPI.Client
 {
@@ -23,7 +23,7 @@ namespace TDAmeritradeAPI.Client
         {
             _credentials = new StreamerSettings.Credentials
             {
-                userId = userPrincipals.userId,
+                userid = userPrincipals.accounts[0].accountId,
                 token = userPrincipals.streamerInfo.token,
                 company = userPrincipals.accounts[0].company,
                 segment = userPrincipals.accounts[0].segment,
@@ -31,7 +31,7 @@ namespace TDAmeritradeAPI.Client
                 usergroup = userPrincipals.streamerInfo.userGroup,
                 accesslevel = userPrincipals.streamerInfo.accessLevel,
                 authorized = "Y",
-                timestamp = ConvertToUnixTimestamp(Convert.ToDateTime(userPrincipals.streamerInfo.tokenTimestamp)),
+                timestamp = Convert.ToInt64(ConvertToUnixTimestamp(Convert.ToDateTime(userPrincipals.streamerInfo.tokenTimestamp))),
                 appid = userPrincipals.streamerInfo.appId,
                 acl = userPrincipals.streamerInfo.acl
             };
@@ -45,26 +45,25 @@ namespace TDAmeritradeAPI.Client
             _loginRequest = new StreamerSettings.Request
             {
                 service = "ADMIN",
-                command = "LOGIN",
-                requestid = 0,
+                command = "LOGOUT",
+                requestid = "0",
                 account = userPrincipals.accounts[0].accountId,
                 source = userPrincipals.streamerInfo.appId,
                 parameters = new StreamerSettings.Parameters
                 {
                     credential = ToQueryString(cred),
                     token = userPrincipals.streamerInfo.token,
-                    version = "1.0",
-                    qoslevel = 1
+                    version = "1.0"
                 }
             };
-
+     
             _reqs.Add(_loginRequest);
 
-            _TIMESALE_FUTURES = new StreamerSettings.Request
+            /*_TIMESALE_FUTURES = new StreamerSettings.Request
             {
                 service = "TIMESALE_FUTURES",
                 command = "SUBS",
-                requestid = 1,
+                requestid = "2",
                 account = userPrincipals.accounts[0].accountId,
                 source = userPrincipals.streamerInfo.appId,
                 parameters = new StreamerSettings.Parameters
@@ -72,19 +71,31 @@ namespace TDAmeritradeAPI.Client
                     keys = "/ES",
                     fields = "0,1,2,3,4"
                 }
-            };
-            _reqs.Add(_TIMESALE_FUTURES);
+            };*/
+            //_reqs.Add(_TIMESALE_FUTURES);
 
             var request = new StreamerSettings.Requests()
             {
                 requests = _reqs.ToArray()
             };
 
-            _ws = new WebsocketClient(new Uri($"wss://{userPrincipals.streamerInfo.streamerSocketUrl}/ws"));
-            _ws.MessageReceived.Subscribe(msg => Console.WriteLine($"Message: {msg}"));
-            _ws.Start();
             
-            _ws.Send(JsonConvert.SerializeObject(_loginRequest));
+            var exitEvent = new ManualResetEvent(false);
+
+            var url = new Uri($"wss://{userPrincipals.streamerInfo.streamerSocketUrl}/ws");
+            using (var client = new WebsocketClient(url))
+            {
+                client.ReconnectTimeout = TimeSpan.FromSeconds(30);
+                client.ReconnectionHappened.Subscribe(info =>
+                    Console.WriteLine($"Reconnection happened, type: {info.Type}"));
+
+                client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
+                client.Start();
+
+                var req = JsonConvert.SerializeObject(request, Formatting.None, new JsonSerializerSettings{NullValueHandling = NullValueHandling.Ignore});
+                Task.Run(() => client.Send(JsonConvert.SerializeObject(req)));
+                exitEvent.WaitOne();
+            }
 
 
             Console.ReadLine();

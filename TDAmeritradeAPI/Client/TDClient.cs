@@ -15,10 +15,9 @@ namespace TDAmeritradeAPI.Client
         private RestClient _client;
         private string AccessToken { get; }
         private string ClientId { get; }
-        public TDClient(string accessToken, string clientId)
+        public TDClient(string accessToken)
         {
             AccessToken = accessToken;
-            ClientId = clientId;
         }
 
         private async Task<TDResponse<T>> ExecuteEndPoint<T>(string endPoint, Dictionary<string, object> requestParams, Method method)
@@ -52,8 +51,8 @@ namespace TDAmeritradeAPI.Client
             _client = new RestClient(endPoint);
             _request = new RestRequest(method);
             _request.AddHeader("Authorization", $"Bearer {AccessToken}");
+            settings = JsonConvert.SerializeObject(settings, Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             _request.AddJsonBody(settings);
-
             var response = _client.Execute(_request);
             var result = JsonConvert.DeserializeObject<T>(response.Content);
             instance.Success = response.IsSuccessful;

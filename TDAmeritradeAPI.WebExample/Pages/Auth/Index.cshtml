@@ -1,0 +1,17 @@
+﻿@page
+@model TDAmeritradeAPI.WebExample.Pages.Auth.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Get Access Token</h1>
+
+<div class="row">
+    <div class="col-sm-8">An example of how to get the access token from TD and save access token in the database for later usage. Once you have successfully authenticated, you will be redirected to the examples page.</div>
+    <div class="col-sm-4">
+        <form asp-page-handler="GetAccessToken" method="post">
+            <button class="btn btn-primary">Get Access Token</button>
+        </form>
+    </div>
+</div>
+

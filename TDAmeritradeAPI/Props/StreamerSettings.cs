@@ -15,7 +15,7 @@ namespace TDAmeritradeAPI.Props
         {
             public string service { get; set; }
             public string command { get; set; }
-            public int requestid { get; set; }
+            public string requestid { get; set; }
             public string account { get; set; }
             public string source { get; set; }
             public Parameters parameters { get; set; }
@@ -25,14 +25,14 @@ namespace TDAmeritradeAPI.Props
         {
             public string credential { get; set; }
             public string token { get; set; }
-            public string version { get; set; } = "1.0";
-            public string keys { get; set; }
-            public string fields { get; set; }
-            public int qoslevel { get; set; }
+            public string version { get; set; }
+            public string? keys { get; set; }
+            public string? fields { get; set; }
+            public string? qoslevel { get; set; }
         }
         public class Credentials
         {
-            public string userId { get; set; }
+            public string userid { get; set; }
             public string token { get; set; }
             public string company { get; set; }
             public string segment { get; set; }

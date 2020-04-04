@@ -6,14 +6,14 @@ D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\TDAm
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.pdb
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\RestSharp.dll
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\Websocket.Client.dll
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\System.Reactive.dll
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.dll
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\TDAmeritradeAPI.pdb
+D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\System.Reactive.xml
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.csprojAssemblyReference.cache
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.AssemblyInfoInputs.cache
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.AssemblyInfo.cs
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.csproj.CopyComplete
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.dll
 D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\obj\Debug\netcoreapp3.1\TDAmeritradeAPI.Example.pdb
-D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\Websocket.Client.dll
-D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\System.Reactive.dll
-D:\Projects\TDAmeritradeAPI\TDAmeritradeAPI.Example\bin\Debug\netcoreapp3.1\System.Reactive.xml

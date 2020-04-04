@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDAmeritradeAPI", "TDAmerit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDAmeritradeAPI.Example", "TDAmeritradeAPI.Example\TDAmeritradeAPI.Example.csproj", "{4925B714-2902-4876-AE2E-2B83F10CD9DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDAmeritradeAPI.WebExample", "TDAmeritradeAPI.WebExample\TDAmeritradeAPI.WebExample.csproj", "{B293FBDB-273D-459D-9F06-53B82C6F2C02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDAmeritradeAPI.WebExample", "TDAmeritradeAPI.WebExample\TDAmeritradeAPI.WebExample.csproj", "{F708F18E-531B-4479-8645-7FE012F9B8D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{4925B714-2902-4876-AE2E-2B83F10CD9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4925B714-2902-4876-AE2E-2B83F10CD9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4925B714-2902-4876-AE2E-2B83F10CD9DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B293FBDB-273D-459D-9F06-53B82C6F2C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B293FBDB-273D-459D-9F06-53B82C6F2C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B293FBDB-273D-459D-9F06-53B82C6F2C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B293FBDB-273D-459D-9F06-53B82C6F2C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F708F18E-531B-4479-8645-7FE012F9B8D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F708F18E-531B-4479-8645-7FE012F9B8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F708F18E-531B-4479-8645-7FE012F9B8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F708F18E-531B-4479-8645-7FE012F9B8D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

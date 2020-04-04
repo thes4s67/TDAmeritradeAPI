@@ -1,12 +1,33 @@
-﻿namespace TDAmeritradeAPI.Fields
+﻿using System.Security.Authentication;
+
+namespace TDAmeritradeAPI.Fields
 {
     public static class Order
     {
+        public static class AssetType
+        {
+            public const string
+                Equity = "EQUITY",
+                Option = "OPTION",
+                Index = "INDEX",
+                Mutual_Fund = "MUTUAL_FUND",
+                Cash_Equivalent = "CASH_EQUIVALENT",
+                Fixed_Income = "FIXED_INCOME",
+                Currency = "CURRENCY";
+        }
+        public static class StrategyType
+        {
+            public const string
+                Single = "SINGLE",
+                OCO = "OCO",
+                Trigger = "TRIGGER";
+        }
         public static class Duration
         {
             public const string
                 Day = "DAY",
                 GTC = "GOOD_TILL_CANCEL",
+                FOK = "FILL_OR_KILL",
                 None = "None";
         }
         public static class Instruction
@@ -16,7 +37,11 @@
                 Sell = "SELL",
                 Buy_To_Cover = "BUY_TO_COVER",
                 Sell_Short = "SELL_SHORT",
-                None = "NONE";
+                Buy_To_Open = "BUY_TO_OPEN",
+                Buy_To_Close = "BUY_TO_CLOSE",
+                Sell_To_Open = "SELL_TO_OPEN",
+                Sell_To_Close = "SELL_TO_CLOSE",
+                Exchange = "EXCHANGE";
         }
         /// <summary>
         /// Used for updating preferences for a specific account
