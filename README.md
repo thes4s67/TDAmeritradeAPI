@@ -26,10 +26,10 @@ var priceHistory = new PriceHistorySettings
 var historicalData = client.GetPriceHistory(priceHistory).Result.Data;
 
 /*Streamer */
-//Initalize the streamer
 var streamer = new TDStreamer(userPrincipals);
 
-//Streamer currently has 2 request examples: login and timesales. See https://developer.tdameritrade.com/content/streaming-data for more endpoints. See TDClient.cs
+//Streamer currently has 2 request examples: login and timesales in TDClient.cs. 
+See https://developer.tdameritrade.com/content/streaming-data for more endpoints.
 
 //Create a streamer request example
  var _TIMESALE_FUTURES = new StreamerSettings.Request
