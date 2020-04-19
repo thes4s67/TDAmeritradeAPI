@@ -24,6 +24,27 @@ var priceHistory = new PriceHistorySettings
       needExtendedHoursData = true
 };
 var historicalData = client.GetPriceHistory(priceHistory).Result.Data;
+
+/*Streamer */
+//Initalize the streamer
+var streamer = new TDStreamer(userPrincipals);
+
+//Streamer currently has 2 request examples: login and timesales. See https://developer.tdameritrade.com/content/streaming-data for more endpoints. See TDClient.cs
+
+//Create a streamer request example
+ var _TIMESALE_FUTURES = new StreamerSettings.Request
+            {
+                service = "TIMESALE_FUTURES",
+                command = "SUBS",
+                requestid = "1",
+                account = userPrincipals.accounts[0].accountId,
+                source = userPrincipals.streamerInfo.appId,
+                parameters = new StreamerSettings.Parameters
+                {
+                    keys = "/ES,/CL",
+                    fields = "0,1,2,3,4"
+                }
+            };
 ```
 
 Web App:
@@ -34,6 +55,3 @@ Web App:
 - Launch the webapp and navigate to Authenticate page. Sign in /w your TD account
 - The access token is saved in the DB for future use
 
-TODO:
-- Streamer currently only logins
-- Most TD endpoints are functional but needs some work.
