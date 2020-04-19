@@ -27,12 +27,13 @@ var historicalData = client.GetPriceHistory(priceHistory).Result.Data;
 ```
 
 Web App:
-Coming soon!
-
-For TD Endpoints, see https://developer.tdameritrade.com/apis
+- Add a callback url that includes "?handler=Callback" to your TD app on the developer page. 
+  Example: https://localhost:44361/auth?handler=Callback
+- Change the clientId and redirectUri variables in the Auth folder (Index.cshtml.cs)
+- You may need to enable-migrations and change the SQL server connection string in the appsettings.json file
+- Launch the webapp and navigate to Authenticate page. Sign in /w your TD account
+- The access token is saved in the DB for future use
 
 TODO:
-- Lots left to do!
 - Streamer currently only logins
-- Currently cannot post trades
-- Most TD endpoints are functional but needs more work.
+- Most TD endpoints are functional but needs some work.
