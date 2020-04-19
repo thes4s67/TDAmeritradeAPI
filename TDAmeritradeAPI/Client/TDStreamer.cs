@@ -45,7 +45,7 @@ namespace TDAmeritradeAPI.Client
             _loginRequest = new StreamerSettings.Request
             {
                 service = "ADMIN",
-                command = "LOGOUT",
+                command = "LOGIN",
                 requestid = "0",
                 account = userPrincipals.accounts[0].accountId,
                 source = userPrincipals.streamerInfo.appId,
@@ -53,26 +53,27 @@ namespace TDAmeritradeAPI.Client
                 {
                     credential = ToQueryString(cred),
                     token = userPrincipals.streamerInfo.token,
-                    version = "1.0"
+                    version = "1.0",
+                    qoslevel = "0"
                 }
             };
      
             _reqs.Add(_loginRequest);
 
-            /*_TIMESALE_FUTURES = new StreamerSettings.Request
+            _TIMESALE_FUTURES = new StreamerSettings.Request
             {
                 service = "TIMESALE_FUTURES",
                 command = "SUBS",
-                requestid = "2",
+                requestid = "1",
                 account = userPrincipals.accounts[0].accountId,
                 source = userPrincipals.streamerInfo.appId,
                 parameters = new StreamerSettings.Parameters
                 {
-                    keys = "/ES",
+                    keys = "/ES,/CL",
                     fields = "0,1,2,3,4"
                 }
-            };*/
-            //_reqs.Add(_TIMESALE_FUTURES);
+            };
+            _reqs.Add(_TIMESALE_FUTURES);
 
             var request = new StreamerSettings.Requests()
             {
@@ -93,7 +94,7 @@ namespace TDAmeritradeAPI.Client
                 client.Start();
 
                 var req = JsonConvert.SerializeObject(request, Formatting.None, new JsonSerializerSettings{NullValueHandling = NullValueHandling.Ignore});
-                Task.Run(() => client.Send(JsonConvert.SerializeObject(req)));
+                Task.Run(() => client.Send(req));
                 exitEvent.WaitOne();
             }
 
